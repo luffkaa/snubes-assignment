@@ -3,6 +3,7 @@ import {
   Concepts,
   Footer,
   Header,
+  WhySnubes
 } from './components';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <main>
         <Concepts />
+        <WhySnubes />
       </main>
       <Footer />
       <CopyRights />
