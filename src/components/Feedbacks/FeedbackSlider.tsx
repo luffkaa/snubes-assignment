@@ -1,7 +1,7 @@
 import chevronLeft from '../../images/icons/chevron-left.svg';
 import chevronRight from '../../images/icons/chevron-right.svg';
 import { FEEDBACKS } from '../../constants/feedbacks';
-import { useState, MouseEvent } from 'react';
+import { useState } from 'react';
 
 export default function FeedbackSlider() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -24,9 +24,8 @@ export default function FeedbackSlider() {
   }
 
   const handleBulletClick = (
-    index: number, e: MouseEvent
+    index: number
   ) => {
-    console.log(e)
     setActiveSlide(index)
   }
 
@@ -62,7 +61,7 @@ export default function FeedbackSlider() {
               <span
                 key={`bullet ${index}`}
                 className={`slider__bullet ${activeSlide === index ? 'show' : 'hide'}`}
-                onClick={(e) => handleBulletClick(index, e)}
+                onClick={() => handleBulletClick(index)}
               ></span>
             )
           })}
