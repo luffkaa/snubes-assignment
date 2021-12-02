@@ -24,6 +24,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 200;
 }
 
 .header__logo.logo_mobile {
