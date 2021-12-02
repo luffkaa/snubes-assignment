@@ -1,5 +1,9 @@
-import { CopyRights, Footer, Header } from './components';
-import Concepts from './components/Concepts';
+import {
+  CopyRights,
+  Concepts,
+  Footer,
+  Header,
+} from './components';
 
 function App() {
   return (

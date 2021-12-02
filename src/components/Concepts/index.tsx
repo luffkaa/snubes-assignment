@@ -1,4 +1,4 @@
-import './consepts.css';
+import './concepts.css';
 import { CONCEPTS } from "../../constants/concepts";
 import SingleConcept from "./SingleConcept";
 
