@@ -54,10 +54,12 @@ footer {
 }
 
 
-@media (max-width: 420px) {
+@media (max-width: 650px) {
   footer {
     height: 369px;
     padding: 45px 0;
+    font-size: 15px;
+    line-height: 1;
   }
   .footer__container {
     flex-direction: column;
