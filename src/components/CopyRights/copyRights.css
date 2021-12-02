@@ -1,0 +1,10 @@
+footer.footer__copy_rights {
+  background-color: var(--color-white);
+  height: auto;
+  padding: 30px 0;
+}
+
+footer.footer__copy_rights p {
+  font-size: 15px;
+  color: var(--footer-backgroung-color);
+}
