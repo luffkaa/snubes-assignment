@@ -3,3 +3,10 @@ export interface IConcepts {
   description: string,
   image: string,
 }
+
+export interface IFeedback {
+  author: string,
+  position: string,
+  logo: string,
+  feedback: string,
+}
