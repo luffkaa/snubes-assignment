@@ -6,14 +6,16 @@ import {
   useRef,
   useState
 } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   BLUE_COLOR,
   GRAY_COLOR,
   RED_COLOR,
 } from '../../constants/constants';
 import { COUNTRIES } from '../../constants/countries';
+import { sendRequest } from '../../store/thunk';
 import { handleValidation } from '../../utils';
-import { DispatchStateI } from './types';
+import { IDispatchState } from './types';
 
 export default function RequestForm() {
   const companyRef = useRef<HTMLInputElement>(null);
@@ -27,10 +29,13 @@ export default function RequestForm() {
   const [name, setName] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+  const [isRequestSent, setIsRequestSent] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement>,
-    setState: DispatchStateI<string>
+    setState: IDispatchState<string>
   ): void => {
     const value = e.target.value;
 
@@ -81,7 +86,8 @@ export default function RequestForm() {
         handleValidation(phoneRef.current.id, phoneRef.current.value) &&
         handleValidation(emailRef.current.id, emailRef.current.value)
       if (isAllValid) {
-        console.log(data)
+        dispatch(sendRequest(data))
+        setIsRequestSent(true)
       } else {
         if (!handleValidation(companyRef.current.id, companyRef.current.value)) {
           companyRef.current.style.borderColor = RED_COLOR;
