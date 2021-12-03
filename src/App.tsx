@@ -4,7 +4,8 @@ import {
   Footer,
   Header,
   WhySnubes,
-  Feedbacks
+  Feedbacks,
+  GetOffer
 } from './components';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <>
       <Header />
       <main>
+        <GetOffer />
         <Concepts />
         <WhySnubes />
         <Feedbacks />

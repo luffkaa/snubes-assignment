@@ -7,6 +7,7 @@
   --hover-transition: all 0.3s ease-in-out;
   --footer-backgroung-color:  #4a4a4a;
   --color-background: #f9f9f9;
+  --color-blue: #09e;
 }
 
 * {
@@ -43,8 +44,6 @@ body, #root {
 
 main {
   padding-top: var(--header-height);
-  height: 100%;
-  /* flex: 1 0 auto; */
 }
 
 footer {
