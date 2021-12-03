@@ -13,8 +13,9 @@ import {
   RED_COLOR,
 } from '../../constants/constants';
 import { COUNTRIES } from '../../constants/countries';
-import { sendRequest } from '../../store/thunk';
+import { sendRequest } from '../../store';
 import { handleValidation } from '../../utils';
+import RequestSent from './RequestSent';
 import { IDispatchState } from './types';
 
 export default function RequestForm() {
@@ -141,75 +142,80 @@ export default function RequestForm() {
 
   return (
     <div className="request_form__container">
-      <h1 className="request_form__title">
-        Find inbound call centers for your company
-      </h1>
-      <p className="request_form__description">
-        Use our AI and Big Data driven call center sourcing solution
-      </p>
-      <form className="request_form__form">
-        <div className="form__inputs_container">
-          <div className="form__item">
-            <label htmlFor="company">Company</label>
-            <input
-              ref={companyRef}
-              type="text"
-              id="company"
-              placeholder="Company"
-              value={company}
-              onChange={(e) => handleInputChange(e, setCompany)}
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-            />
-          </div>
-          <div className="form__item">
-            <label htmlFor="name">Name</label>
-            <input
-              ref={nameRef}
-              type="text"
-              id="name"
-              placeholder="Full name"
-              value={name}
-              onChange={(e) => handleInputChange(e, setName)}
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-            />
-          </div>
-          <div className="form__item">
-            <label htmlFor="phone">Phone</label>
-            <input
-              ref={phoneRef}
-              type="tel"
-              id="phone"
-              placeholder={isdCode}
-              value={phone}
-              onChange={(e) => handleInputChange(e, setPhone)}
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-            />
-          </div>
-          <div className="form__item">
-            <label htmlFor="email">E-mail</label>
-            <input
-              ref={emailRef}
-              type="email"
-              id="email"
-              placeholder="name@mail.com"
-              value={email}
-              onChange={(e) => handleInputChange(e, setEmail)}
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-            />
-          </div>
-        </div>
-        <button
-          type="submit"
-          className="form__button"
-          onClick={(e) => handleSubmit(e)}
-        >
-          Get informed
-        </button>
-      </form>
+      { !isRequestSent ?
+        <>
+          <h1 className="request_form__title">
+            Find inbound call centers for your company
+          </h1>
+          <p className="request_form__description">
+            Use our AI and Big Data driven call center sourcing solution
+          </p>
+          <form className="request_form__form">
+            <div className="form__inputs_container">
+              <div className="form__item">
+                <label htmlFor="company">Company</label>
+                <input
+                  ref={companyRef}
+                  type="text"
+                  id="company"
+                  placeholder="Company"
+                  value={company}
+                  onChange={(e) => handleInputChange(e, setCompany)}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                />
+              </div>
+              <div className="form__item">
+                <label htmlFor="name">Name</label>
+                <input
+                  ref={nameRef}
+                  type="text"
+                  id="name"
+                  placeholder="Full name"
+                  value={name}
+                  onChange={(e) => handleInputChange(e, setName)}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                />
+              </div>
+              <div className="form__item">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  ref={phoneRef}
+                  type="tel"
+                  id="phone"
+                  placeholder={isdCode}
+                  value={phone}
+                  onChange={(e) => handleInputChange(e, setPhone)}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                />
+              </div>
+              <div className="form__item">
+                <label htmlFor="email">E-mail</label>
+                <input
+                  ref={emailRef}
+                  type="email"
+                  id="email"
+                  placeholder="name@mail.com"
+                  value={email}
+                  onChange={(e) => handleInputChange(e, setEmail)}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="form__button"
+              onClick={(e) => handleSubmit(e)}
+            >
+              Get informed
+            </button>
+          </form>
+        </>
+      : <RequestSent />
+      }
     </div>
   )
 }

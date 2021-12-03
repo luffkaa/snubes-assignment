@@ -4,7 +4,7 @@ import {
   getRequestFailure,
   getRequestStart,
   getRequestSuccess
-} from "./request/actions";
+} from "./request";
 
 export const sendRequest = (data: IRequest) => 
   async (dispatch: Dispatch) => {
